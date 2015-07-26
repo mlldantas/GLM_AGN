@@ -1,1 +1,1 @@
-# GLM_AGN
+# GLM for AGN selection
