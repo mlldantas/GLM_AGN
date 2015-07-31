@@ -28,8 +28,7 @@ confusionMatrix(ROCF$True, ROCF$class)
 
 
 
-new.data <- expand.grid(Xmol = seq(1e-4,2e-1, length = 5000), 
-                        Z = mean(Biffi_data$Z))
+
 x <-range(AGN_data$log10.NII.Ha.)
 x <- seq(x[1], x[2], length.out=50)    
 y <- range(AGN_data$log10.EW.Ha..)
@@ -41,11 +40,11 @@ z <- outer(x,y,
 library(rsm)
 library(lattice)
 YlOrBr <- c("#FFFFD4", "#FED98E", "#FE9929", "#D95F0E", "#993404")
-p<-persp(x,y,z, theta=150, phi=20, 
-         expand = 0.5,shade = 0.1,
-         xlab="Z", ylab=expression(NII.Ha), zlab=expression(log10.EW.Ha),ticktype='detailed',
-         col = YlOrBr,border=NA,xlog=T,ylog=T)
-cor = topo.colors(200)
+#p<-persp(x,y,z, theta=150, phi=20, 
+#         expand = 0.5,shade = 0.1,
+#         xlab="Z", ylab=expression(NII.Ha), zlab=expression(log10.EW.Ha),ticktype='detailed',
+#         col = YlOrBr,border=NA,xlog=T,ylog=T)
+#cor = topo.colors(200)
 
 cairo_pdf("logit3D.pdf")
 trellis.par.set("axis.line",list(axis.text=list(cex=20),col=NA,lty=1,lwd=2))
