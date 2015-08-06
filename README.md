@@ -1,1 +1,1 @@
-# GLM for AGN selection
+# Unsupervised learning for AGN selection
