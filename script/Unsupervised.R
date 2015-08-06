@@ -18,7 +18,19 @@ data<-WHAN[,-3]
 mod4 = Mclust(data)
 summary(mod4)
 plot(mod4, what = "classification")
+plot(mod4, what = "boundaries", ngrid = 200)
+
 
 
 ggplot(WHAN,aes(x=log10..NII..Ha.,y=log10.EW.Ha..,colour=WHAN_Class))+
-  geom_point()
+  geom_point()+theme_stata()
+
+
+library(fpc)
+# eps is radius of neighborhood, MinPts is no of neighbors
+# within eps
+ cluster <- dbscan(data, eps=0.6, MinPts=4)
+ plot(cluster, data)
+
+# Notice points in cluster 0 are unassigned outliers
+ table(cluster$cluster, WHAN$WHAN_Class)
