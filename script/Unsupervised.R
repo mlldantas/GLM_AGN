@@ -15,7 +15,7 @@ WHAN$WHAN_Class<-as.factor(WHAN$WHAN_Class)
 
 
 data<-WHAN[,-3]
-mod4 = Mclust(data)
+mod4 = Mclust(data,G=5)
 summary(mod4)
 plot(mod4, what = "classification")
 plot(mod4, what = "boundaries", ngrid = 200)
@@ -34,3 +34,16 @@ library(fpc)
 
 # Notice points in cluster 0 are unassigned outliers
  table(cluster$cluster, WHAN$WHAN_Class)
+ 
+ 
+ confusionMatrix(WHAN$WHAN_Class,mod4$classification-1)
+ 
+ library("cluster")
+ l <- mod4$classification
+ d <- dist(WHAN[-3])
+ 
+ si<-silhouette(mod4$classification,d)
+ 
+ 
+ si2<-silhouette(as.numeric(WHAN$WHAN_Class),d)
+ 
