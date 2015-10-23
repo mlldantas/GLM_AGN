@@ -4,7 +4,7 @@ require(kernlab)
 library(e1071)
 require(MASS)
 require(mclust)
-AGN_data<-read.table("../data/outputdata_diagnostic.txt",header=TRUE,sep="")
+AGN_data<-read.table("../data/outputdata_all-1.txt",header=TRUE,sep="")
 
 # Format data for WHAN test
 WHAN<-AGN_data[,c("log10..NII..Ha.","log10.EW.Ha..","WHAN_Class")]
