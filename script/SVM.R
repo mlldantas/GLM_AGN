@@ -5,6 +5,9 @@ library(pROC)
 require(kernlab)
 library(e1071)
 require(rpart)
+<<<<<<< HEAD
+AGN_data<-read.table("../data/outputdata.txt",header=TRUE,sep="")
+=======
 AGN_data<-read.csv("../data/output_xray.csv",header=TRUE)
 AGN_data<-AGN_data[AGN_data$F_nii>0 & AGN_data$F_Halpha > 0 & 
                      AGN_data$F_oiii > 0 & AGN_data$F_Hbeta > 0,]
@@ -29,12 +32,21 @@ fitted(nonlinear.svm)
 
 
 
+>>>>>>> origin/master
 AGN_data$WHAN_Class<-as.factor(AGN_data$WHAN_Class)
 AGN_data$WHAN_Class<-revalue(AGN_data$WHAN_Class,c("2"="AGN","3"="AGN","0"="No AGN","1"="No AGN","4"="No AGN"))
 
 
 
+<<<<<<< HEAD
+nonlinear.svm <- ksvm( WHAN_Class~log10.NII.Ha.+log10.EW.Ha.., data=AGN_data, type='spoc-svc', kernel='rbf',
+                       kpar=list(sigma=1), C=100, scale=c() )
+plot( nonlinear.svm, data=AGN_data )
 
+fitted(nonlinear.svm)
+=======
+
+>>>>>>> origin/master
 
 
 
